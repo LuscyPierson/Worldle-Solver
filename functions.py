@@ -61,3 +61,4 @@ def wordleSolved(wordleGuess) -> bool:
     if wordleGuess == ["g", "g", "g", "g", "g"]:
         return True
     return result
+
