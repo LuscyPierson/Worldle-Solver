@@ -8,3 +8,10 @@ wordList = importList(infile)
 # initialize wordle
 wordle = initializeWord()
 
+# take guess
+guess = guessWord()
+
+# get results of guess
+wordleResults = getGuess()
+
+
