@@ -28,7 +28,7 @@ def getGuess() -> str:
         value = input(f"What was the result of letter {i + 1}? (g/y/w): ")
         wordleGuess.append(value)
 
-    return wordleGuess
+    return wordleResults
 
 def filterList(wordleGuess, wordList) -> arr:
     for i in range(0, 5):
