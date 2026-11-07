@@ -40,10 +40,24 @@ def filterList(wordleGuess, wordList) -> arr:
             wordList = [word for word in wordList if wordleGuess[i] not in word]
 
     return wordList
-    
 
+def displayList(wordList) -> None:
+    print("There are " + str(len(wordList)) + " possible words.")
+    print("Here are the possible words:")
+    print("-----------------------------")
+    for word in wordList:
+        print(word)
+    print("-----------------------------")
+
+def displayWordle(wordle) -> None:
+    print("The current state of the wordle is:")
+    print("-----------------------------")
+    print(wordle)
+    print("-----------------------------")
 
 
 def wordleSolved(wordleGuess) -> bool:
-    return True
-
+    result = False
+    if wordleGuess == ["g", "g", "g", "g", "g"]:
+        return True
+    return result
