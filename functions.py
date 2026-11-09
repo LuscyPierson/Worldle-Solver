@@ -62,3 +62,16 @@ def wordleSolved(wordleGuess) -> bool:
         return True
     return result
 
+def displayResults(wordleGuess) -> None:
+    print("The results of your guess are:")
+    print("-----------------------------")
+    print(wordleGuess)
+    print("-----------------------------")
+
+def finalResults(wordleGuess, wordList) -> None:
+    if wordleSolved(wordleGuess):
+        print("Congratulations! You solved the wordle!")
+    else:
+        print("Sorry, you did not solve the wordle.")
+        print("The possible words were:")
+        displayList(wordList)
