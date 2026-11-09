@@ -56,10 +56,17 @@ def displayWordle(wordle) -> None:
     print("-----------------------------")
 
 def guessesLeft(counter) -> int:
+    counter -=1
     print("You have " + str(counter) + " guesses left.")
     print("-----------------------------")
 
     return counter
+
+def stopGame(counter) -> bool:
+    if counter == 0:
+        return True
+    else:
+        return False
 
 def wordleSolved(wordleGuess) -> bool:
     result = False
