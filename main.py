@@ -17,3 +17,6 @@ def main():
 
     # filter list based on guess
     wordList = filterList(wordleGuess, wordList)
+
+if __name__ == "__main__":
+    main()
