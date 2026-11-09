@@ -1,34 +1,39 @@
 import array as arr
-from functions import *
+from functions import Game
 
 def main():
+    # start counter 
+    counter = 5
     # import list from bank
     infile = "wordleList.txt"
-    wordList = importList(infile)
+    wordList = Game.importList(infile)
 
     # initialize wordle
-    wordle = initializeWord()
+    wordle = Game.initializeWord()
 
     # take guess
-    guess = guessWord()
+    wordleGuess = Game.guessWord()
 
     # get results of guess
-    wordleGuess = getGuess()
+    wordleGuess = Game.getGuess()
 
     # filter list based on guess
-    wordList = filterList(wordleGuess, wordList)
+    wordList = Game.filterList(wordleGuess, wordList)
 
     # display list of possible words
-    displayList(wordList)
+    Game.displayList(wordList)
 
     # display current state of wordle
-    displayWordle(wordle)
+    Game.displayWordle(wordle)
+
+    # display number of guesses left
+    counter = Game.guessesLeft(counter)
 
     # display results
-    displayResults(wordleGuess)
+    Game.displayResults(wordleGuess)
 
     # display final results
-    finalResults(wordleGuess, wordList)
+    Game.finalResults(wordleGuess, wordList)
 
 if __name__ == "__main__":
     main()
