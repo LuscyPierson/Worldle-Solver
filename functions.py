@@ -25,20 +25,29 @@ class Game:
         print("-----------------------------")
 
         wordleGuess = [] 
-        for i in (0,6):
+        for i in range(5):
             value = input(f"What was the result of letter {i + 1}? (g/y/w): ")
-            wordleGuess.append(value).strip().lower()
+            wordleGuess.append(value.strip().lower())
 
         return wordleGuess
 
-    def filterList(wordleGuess, wordList) -> arr:
-        for i in range(0, 5):
-            if wordleGuess[i] == "g" or wordleGuess[i] == "G":
-                wordList = [word for word in wordList if word[i] == wordleGuess[i]]
-            elif wordleGuess[i] == "y" or wordleGuess[i] == "Y":
-                wordList = [word for word in wordList if wordleGuess[i] in word and word[i] != wordleGuess[i]]
-            elif wordleGuess[i] == "w" or wordleGuess[i] == "W":
-                wordList = [word for word in wordList if wordleGuess[i] not in word]
+    def filterList(guess, wordleGuess, wordList) -> arr:
+        guess = guess.strip().lower()
+        colors = [c.strip().lower() for c in wordleGuess]
+
+        for i in range(len(guess)):
+            letter = guess[i]
+            color = colors[i]
+            if color == "g":
+                wordList = [word for word in wordList if word[i] == letter]
+            elif color == "y":
+                wordList = [word for word in wordList if letter in word and word[i] != letter]
+            elif color == "w":
+                elsewhere = any(guess[j] == letter and colors[j] in ("g", "y") for j in range(len(guess)))
+                if elsewhere:
+                    wordList = [word for word in wordList if word[i] != letter]
+                else:
+                    wordList = [word for word in wordList if letter not in word]
 
         return wordList
 
@@ -87,7 +96,7 @@ class Game:
 
     def finalResults(wordleGuess, wordList, counter) -> None:
         if Game.wordleSolved(wordleGuess):
-            print(f"Congratulations! You solved the wordle in {counter} guesses!")
+            print(f"Congratulations! You solved the wordle in {counter + 1} guesses!")
         else:
             print("Sorry, you did not solve the wordle.")
             print("The possible words were:")
