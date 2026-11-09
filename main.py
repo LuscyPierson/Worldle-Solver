@@ -12,6 +12,9 @@ wordle = initializeWord()
 guess = guessWord()
 
 # get results of guess
-wordleResults = getGuess()
+wordleGuess = getGuess()
+
+# filter list based on guess
+wordList = filterList(wordleGuess, wordList)
 
 
