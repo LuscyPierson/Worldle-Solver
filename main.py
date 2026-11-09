@@ -1,20 +1,19 @@
 import array as arr
 from functions import *
 
-# import list from bank
-infile = "wordleList.txt"
-wordList = importList(infile)
+def main():
+    # import list from bank
+    infile = "wordleList.txt"
+    wordList = importList(infile)
 
-# initialize wordle
-wordle = initializeWord()
+    # initialize wordle
+    wordle = initializeWord()
 
-# take guess
-guess = guessWord()
+    # take guess
+    guess = guessWord()
 
-# get results of guess
-wordleGuess = getGuess()
+    # get results of guess
+    wordleGuess = getGuess()
 
-# filter list based on guess
-wordList = filterList(wordleGuess, wordList)
-
-
+    # filter list based on guess
+    wordList = filterList(wordleGuess, wordList)
