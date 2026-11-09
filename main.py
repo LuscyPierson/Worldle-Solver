@@ -23,5 +23,12 @@ def main():
 
     # display current state of wordle
     displayWordle(wordle)
+
+    # display results
+    displayResults(wordleGuess)
+
+    # display final results
+    finalResults(wordleGuess, wordList)
+
 if __name__ == "__main__":
     main()
