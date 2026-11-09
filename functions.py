@@ -63,16 +63,20 @@ class Game:
 
         return counter
 
-    def stopGame(counter) -> bool:
-        if counter == 0:
-            return True
-        else:
-            return False
 
     def wordleSolved(wordleGuess) -> bool:
         result = False
         if wordleGuess == ["g", "g", "g", "g", "g"]:
             return True
+        return result
+
+    def stopGame(counter, wordleGuess) -> bool:
+        result = False
+        
+        if counter == 0:
+            result = True
+        elif Game.wordleSolved(wordleGuess):
+            result = True
         return result
 
     def displayResults(wordleGuess) -> None:
