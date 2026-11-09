@@ -11,26 +11,29 @@ def main():
     # initialize wordle
     wordle = Game.initializeWord()
 
-    # take guess
-    wordleGuess = Game.guessWord()
+    if counter > 0:
+        # take guess
+        wordleGuess = Game.guessWord()
 
-    # get results of guess
-    wordleGuess = Game.getGuess()
+        # get results of guess
+        wordleGuess = Game.getGuess()
 
-    # filter list based on guess
-    wordList = Game.filterList(wordleGuess, wordList)
+        # filter list based on guess
+        wordList = Game.filterList(wordleGuess, wordList)
 
-    # display list of possible words
-    Game.displayList(wordList)
+        # display list of possible words
+        Game.displayList(wordList)
 
-    # display current state of wordle
-    Game.displayWordle(wordle)
+        # display current state of wordle
+        Game.displayWordle(wordle)
 
-    # display number of guesses left
-    counter = Game.guessesLeft(counter)
+        # display number of guesses left
+        counter = Game.guessesLeft(counter)
 
-    # display results
-    Game.displayResults(wordleGuess)
+        # display results
+        Game.displayResults(wordleGuess)
+        
+        
 
     # display final results
     Game.finalResults(wordleGuess, wordList)
