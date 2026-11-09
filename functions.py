@@ -1,89 +1,91 @@
 import array as arr
 
-def importList(infile) -> arr:
-    infile = open("wordleList.txt", "r")
-    wordList = infile.read().splitlines()
-    return wordList
+class Game:
+    def importList(infile) -> arr:
+        infile = open("wordleList.txt", "r")
+        wordList = infile.read().splitlines()
+        return wordList
 
-def initializeWord() -> arr:
-    w = "white"
-    wordle = ["w", "w", "w", "w", "w"]
-    return wordle
+    def initializeWord() -> arr:
+        w = "white"
+        wordle = ["w", "w", "w", "w", "w"]
+        return wordle
 
-def guessWord() -> str:
-    guess = input("Enter your guess: ")
+    def guessWord() -> str:
+        guess = input("Enter your guess: ")
 
-    return guess
+        return guess
 
-def getGuess() -> str:
-    print("Enter the results of your first guess:")
-    print("---------------------------------------")
-    print("G for green")
-    print("Y for yellow")
-    print("W for white")
-    print("---------------------------------------")
+    def getGuess() -> str:
+        print("Enter the results of your first guess:")
+        print("-----------------------------")
+        print("G for green")
+        print("Y for yellow")
+        print("W for white")
+        print("-----------------------------")
 
-    wordleGuess = [] 
-    for i in (0,6):
-        value = input(f"What was the result of letter {i + 1}? (g/y/w): ")
-        wordleGuess.append(value)
+        wordleGuess = [] 
+        for i in (0,6):
+            value = input(f"What was the result of letter {i + 1}? (g/y/w): ")
+            wordleGuess.append(value)
 
-    return wordleGuess
+        return wordleGuess
 
-def filterList(wordleGuess, wordList) -> arr:
-    for i in range(0, 5):
-        if wordleGuess[i] == "g":
-            wordList = [word for word in wordList if word[i] == wordleGuess[i]]
-        elif wordleGuess[i] == "y":
-            wordList = [word for word in wordList if wordleGuess[i] in word and word[i] != wordleGuess[i]]
-        elif wordleGuess[i] == "w":
-            wordList = [word for word in wordList if wordleGuess[i] not in word]
+    def filterList(wordleGuess, wordList) -> arr:
+        for i in range(0, 5):
+            if wordleGuess[i] == "g":
+                wordList = [word for word in wordList if word[i] == wordleGuess[i]]
+            elif wordleGuess[i] == "y":
+                wordList = [word for word in wordList if wordleGuess[i] in word and word[i] != wordleGuess[i]]
+            elif wordleGuess[i] == "w":
+                wordList = [word for word in wordList if wordleGuess[i] not in word]
 
-    return wordList
+        return wordList
 
-def displayList(wordList) -> None:
-    print("There are " + str(len(wordList)) + " possible words.")
-    print("Here are the possible words:")
-    print("-----------------------------")
-    for word in wordList:
-        print(word)
-    print("-----------------------------")
+    def displayList(wordList) -> None:
+        print("There are " + str(len(wordList)) + " possible words.")
+        print("Here are the possible words:")
+        print("-----------------------------")
+        for word in wordList:
+            print(word)
+        print("-----------------------------")
 
-def displayWordle(wordle) -> None:
-    print("The current state of the wordle is:")
-    print("-----------------------------")
-    print(wordle)
-    print("-----------------------------")
+    def displayWordle(wordle) -> None:
+        print("The current state of the wordle is:")
+        print("-----------------------------")
+        print(wordle)
+        print("-----------------------------")
 
-def guessesLeft(counter) -> int:
-    counter -=1
-    print("You have " + str(counter) + " guesses left.")
-    print("-----------------------------")
+    def guessesLeft(counter) -> int:
+        counter -=1
+        print("You have " + str(counter) + " guesses left.")
+        print("-----------------------------")
 
-    return counter
+        return counter
 
-def stopGame(counter) -> bool:
-    if counter == 0:
-        return True
-    else:
-        return False
+    def stopGame(counter) -> bool:
+        if counter == 0:
+            return True
+        else:
+            return False
 
-def wordleSolved(wordleGuess) -> bool:
-    result = False
-    if wordleGuess == ["g", "g", "g", "g", "g"]:
-        return True
-    return result
+    def wordleSolved(wordleGuess) -> bool:
+        result = False
+        if wordleGuess == ["g", "g", "g", "g", "g"]:
+            return True
+        return result
 
-def displayResults(wordleGuess) -> None:
-    print("The results of your guess are:")
-    print("-----------------------------")
-    print(wordleGuess)
-    print("-----------------------------")
+    def displayResults(wordleGuess) -> None:
+        print("The results of your guess are:")
+        print("-----------------------------")
+        print(wordleGuess)
+        print("-----------------------------")
 
-def finalResults(wordleGuess, wordList) -> None:
-    if wordleSolved(wordleGuess):
-        print("Congratulations! You solved the wordle!")
-    else:
-        print("Sorry, you did not solve the wordle.")
-        print("The possible words were:")
-        displayList(wordList)
+    def finalResults(wordleGuess, wordList) -> None:
+        if wordleSolved(wordleGuess):
+            print("Congratulations! You solved the wordle!")
+        else:
+            print("Sorry, you did not solve the wordle.")
+            print("The possible words were:")
+            displayList(wordList)
+
