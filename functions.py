@@ -27,17 +27,17 @@ class Game:
         wordleGuess = [] 
         for i in (0,6):
             value = input(f"What was the result of letter {i + 1}? (g/y/w): ")
-            wordleGuess.append(value)
+            wordleGuess.append(value).strip().lower()
 
         return wordleGuess
 
     def filterList(wordleGuess, wordList) -> arr:
         for i in range(0, 5):
-            if wordleGuess[i] == "g":
+            if wordleGuess[i] == "g" or wordleGuess[i] == "G":
                 wordList = [word for word in wordList if word[i] == wordleGuess[i]]
-            elif wordleGuess[i] == "y":
+            elif wordleGuess[i] == "y" or wordleGuess[i] == "Y":
                 wordList = [word for word in wordList if wordleGuess[i] in word and word[i] != wordleGuess[i]]
-            elif wordleGuess[i] == "w":
+            elif wordleGuess[i] == "w" or wordleGuess[i] == "W":
                 wordList = [word for word in wordList if wordleGuess[i] not in word]
 
         return wordList
