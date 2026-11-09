@@ -82,10 +82,10 @@ class Game:
         print("-----------------------------")
 
     def finalResults(wordleGuess, wordList) -> None:
-        if wordleSolved(wordleGuess):
+        if Game.wordleSolved(wordleGuess):
             print("Congratulations! You solved the wordle!")
         else:
             print("Sorry, you did not solve the wordle.")
             print("The possible words were:")
-            displayList(wordList)
+            Game.displayList(wordList)
 
