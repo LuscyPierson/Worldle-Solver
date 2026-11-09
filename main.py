@@ -10,16 +10,17 @@ def main():
 
     # initialize wordle
     wordle = Game.initializeWord()
+    wordleGuess = wordle
 
-    while counter > 0 and not Game.wordleSolved(wordle):
+    while counter > 0 and not Game.wordleSolved(wordleGuess):
         # take guess
-        wordleGuess = Game.guessWord()
+        guess = Game.guessWord()
 
         # get results of guess
         wordleGuess = Game.getGuess()
 
         # filter list based on guess
-        wordList = Game.filterList(wordleGuess, wordList)
+        wordList = Game.filterList(guess, wordleGuess, wordList)
 
         # display list of possible words
         Game.displayList(wordList)
