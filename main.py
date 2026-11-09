@@ -20,5 +20,8 @@ def main():
 
     # display list of possible words
     displayList(wordList)
+
+    # display current state of wordle
+    displayWordle(wordle)
 if __name__ == "__main__":
     main()
