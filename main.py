@@ -11,7 +11,7 @@ def main():
     # initialize wordle
     wordle = Game.initializeWord()
 
-    if counter > 0:
+    while counter > 0 and not Game.wordleSolved(wordle):
         # take guess
         wordleGuess = Game.guessWord()
 
@@ -34,7 +34,6 @@ def main():
         Game.displayResults(wordleGuess)
         
         
-
     # display final results
     Game.finalResults(wordleGuess, wordList)
 
