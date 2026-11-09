@@ -85,9 +85,9 @@ class Game:
         print(wordleGuess)
         print("-----------------------------")
 
-    def finalResults(wordleGuess, wordList) -> None:
+    def finalResults(wordleGuess, wordList, counter) -> None:
         if Game.wordleSolved(wordleGuess):
-            print("Congratulations! You solved the wordle!")
+            print(f"Congratulations! You solved the wordle in {counter} guesses!")
         else:
             print("Sorry, you did not solve the wordle.")
             print("The possible words were:")

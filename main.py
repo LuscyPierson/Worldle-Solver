@@ -35,7 +35,7 @@ def main():
         
         
     # display final results
-    Game.finalResults(wordleGuess, wordList)
+    Game.finalResults(wordleGuess, wordList, counter)
 
 if __name__ == "__main__":
     main()
